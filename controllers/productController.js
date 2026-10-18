@@ -49,3 +49,39 @@ exports.getSingleProduct = async (req, res) => {
     res.status(500).json({ success: false, message: 'Server Error', error: error.message });
   }
 };
+
+// @desc    Delete a product
+// @route   DELETE /api/products/:id
+exports.deleteProduct = async (req, res) => {
+  try {
+    const product = await Product.findByIdAndDelete(req.params.id);
+    if (!product) {
+      return res.status(404).json({ success: false, message: 'Product not found' });
+    }
+    res.status(200).json({ success: true, message: 'Product deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ success: false, message: 'Server Error', error: error.message });
+  }
+};
+
+// @desc    Update a product
+// @route   PUT /api/products/:id
+exports.updateProduct = async (req, res) => {
+  try {
+    let product = await Product.findById(req.params.id);
+    
+    if (!product) {
+      return res.status(404).json({ success: false, message: 'Product not found' });
+    }
+
+    // req.body theke notun data diye product update kora
+    product = await Product.findByIdAndUpdate(req.params.id, req.body, {
+      new: true, // notun update kora data ta return korbe
+      runValidators: true
+    });
+
+    res.status(200).json({ success: true, message: 'Product updated successfully', data: product });
+  } catch (error) {
+    res.status(500).json({ success: false, message: 'Server Error', error: error.message });
+  }
+};
