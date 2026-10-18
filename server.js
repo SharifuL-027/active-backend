@@ -30,7 +30,7 @@ app.get('/api', (req, res) => {
 // Routes
 app.use('/api/products', require('./routes/productRoutes'));
 app.use('/api/auth', require('./routes/authRoutes'));
-
+app.use('/api/inquiries', require('./routes/inquiryRoutes'));
 // Dynamic Port setup
 const PORT = process.env.PORT || 5000;
 
