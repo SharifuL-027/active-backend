@@ -29,7 +29,7 @@ app.get('/api', (req, res) => {
 });
 // Routes
 app.use('/api/products', require('./routes/productRoutes'));
-
+app.use('/api/auth', require('./routes/authRoutes'));
 
 // Dynamic Port setup
 const PORT = process.env.PORT || 5000;
