@@ -56,9 +56,9 @@ exports.createProduct = async (req, res) => {
     const product = await Product.create({
       title: req.body.title,
       category: req.body.category,
-      specs: req.body.specs,
+      specs: req.body.specs, // <--- এখানে JSON.parse() হবে না
       description: req.body.description,
-      images: imageUrls // Array টি ডাটাবেসে সেভ হবে
+      images: imageUrls // বা আপনার ভ্যারিয়েবলের নাম অনুযায়ী
     });
 
     res.status(201).json({ success: true, data: product });
