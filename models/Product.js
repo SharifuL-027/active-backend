@@ -10,7 +10,24 @@ const productSchema = new mongoose.Schema({
   category: {
     type: String,
     required: [true, 'Product category is required'],
-    enum: ['Traction Machines', 'Elevator Cabins', 'Spare Parts', 'Control Systems', 'Safety Components'] 
+    // এখানে নতুন সবগুলো ক্যাটাগরি নাম্বারিং ছাড়া যুক্ত করা হয়েছে
+    enum: [
+      'Lift & Escalator', 
+      'Cargo Lift', 
+      'Home Lift', 
+      'Traction Motor', 
+      'Cabin', 
+      'Controller', 
+      'Door System', 
+      'COP & LOP', 
+      'Steel Rope & Suspension Rod', 
+      'Photocell', 
+      'Buffer', 
+      'Speed Governor', 
+      'Guide Shoe', 
+      'Limit Switch', 
+      'U Switch'
+    ] 
   },
   images: {
     type: [String], 

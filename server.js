@@ -6,13 +6,12 @@ const connectDB = require('./config/db'); // Database connection import
 
 const app = express();
 
-// Database er sathe connect kora
+
 connectDB();
 
-// Middleware
-app.use(express.json()); // JSON parsing er jonno
 
-// CORS Security - Sudhu .env e deya Frontend URL thekei request allow korbe
+app.use(express.json()); 
+
 app.use(cors({
   origin: process.env.CLIENT_URL,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
