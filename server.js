@@ -14,11 +14,7 @@ app.use(express.json());
 
 // Updated CORS Setup
 app.use(cors({
-  origin: [
-    'https://activelift.netlify.app', // আপনার লাইভ ফ্রন্টএন্ড লিংক
-    'http://localhost:5173',          // আপনার লোকাল ফ্রন্টএন্ড (টেস্টিংয়ের জন্য)
-    'http://localhost:3000'
-  ],
+  origin: process.env.CLIENT_URL,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true
 }));
