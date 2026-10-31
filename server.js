@@ -12,7 +12,6 @@ connectDB();
 
 app.use(express.json()); 
 
-// Updated CORS Setup
 app.use(cors({
   origin: process.env.CLIENT_URL,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
